@@ -1,0 +1,54 @@
+  .leaderboard-content { 
+            text-align: center; 
+            padding: 60px 20px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Game Selection Styling */
+        .game-select { 
+            margin-bottom: 50px; 
+            background: var(--card-bg); 
+            padding: 25px; 
+            border-radius: 12px; 
+            border: 1px solid var(--nav-border);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        select { 
+            background: var(--bg-main); 
+            color: var(--text-white); 
+            border: 1px solid var(--nav-border); 
+            padding: 12px 20px; 
+            border-radius: 8px; 
+            outline: none; 
+            width: 100%;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* The Construction Section */
+        .wip-section { margin-top: 20px; position: relative; }
+        
+        .icon-group { position: relative; height: 120px; margin-bottom: 30px; }
+        
+        .fa-hammer { 
+            font-size: 5rem; 
+            color: var(--accent); 
+            transform: rotate(-15deg);
+        }
+        
+        .fa-circle-question { 
+            font-size: 3rem; 
+            color: var(--text-grey);
+            position: absolute;
+            bottom: 0;
+            right: -20px;
+            background: var(--bg-main);
+            border-radius: 50%;
+        }
+
+        h2 { font-size: 2rem; margin-bottom: 10px; color: var(--text-white); }
+        p { color: var(--text-grey); font-size: 1.1rem; }

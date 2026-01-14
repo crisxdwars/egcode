@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings | EGCode</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css"> <link rel="stylesheet" href="style.css">     <script>
+        const savedTheme = localStorage.getItem('egcode-theme') || 'dark-modern';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="../index.html" class="logo" style="text-decoration:none">EG<span>Code</span></a>
+        </div>
+        <div class="nav-right">
+            <a href="../index.html" class="btn-primary" style="text-decoration:none; padding: 10px 20px; background:var(--accent); color:white; border-radius:6px;">Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="settings-container">
+        <h1>Settings</h1>
+        
+        <div class="settings-card">
+            <div class="setting-item">
+                <div class="setting-info">
+                    <h3>Personalization</h3>
+                    <p>Change the appearance of EGCode.</p>
+                </div>
+                <div class="setting-control">
+                    <label>Theme</label>
+                    <select id="themeSelect">
+                        <option value="dark-modern">Dark Mode Modern</option>
+                        <option value="light-mode">Light Mode</option>
+                        <option value="light-rose">Light Rose</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const themeSelect = document.getElementById('themeSelect');
+        
+        // Set dropdown to current theme
+        themeSelect.value = localStorage.getItem('egcode-theme') || 'dark-modern';
+
+        themeSelect.addEventListener('change', (e) => {
+            const newTheme = e.target.value;
+            // Apply immediately
+            document.documentElement.setAttribute('data-theme', newTheme);
+            // Save to browser memory
+            localStorage.setItem('egcode-theme', newTheme);
+        });
+    </script>
+</body>
+</html>
