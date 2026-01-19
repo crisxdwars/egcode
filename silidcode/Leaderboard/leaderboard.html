@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" oncontextmenu="return false" ondragstart="return false">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard | SilidCode</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="leaderboard.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <button id="sidebarToggle" class="menu-toggle">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <div class="logo">EG<span>Code</span></div>
+        </div>
+        <div class="nav-right">
+            <button class="login-link">Login</button>
+            <button class="register-btn">Sign Up</button>
+        </div>
+    </nav>
+
+    <div class="main-layout">
+        <aside class="sidebar collapsed" id="sidebar">
+            <div class="sidebar-sections">
+                <section>
+                    <h3>Menu</h3>
+                    <ul>
+                        <li><a href="../index.html" style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:15px;">
+                            <i class="fa-solid fa-house"></i> Home</a>
+                        </li>
+                        <li class="active"><i class="fa-solid fa-ranking-star"></i> Leaderboard</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="https://discord.gg/6SEDNkbVrf" target="_blank" style="text-decoration: none; color: inherit;"><i class="fa-brands fa-discord"></i>Discord</a></li>
+                        <li><a href="javascript:void(0)" style="text-decoration: none; color: inherit;"><i class="fa-brands fa-facebook"></i>Facebook</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Others</h3>
+                    <ul>
+                        <li><a href="javascript:void(0)" style="text-decoration: none; color: inherit;"><i class="fa-solid fa-comment-dots"></i>Feedback</a></li>
+                        <li><a href="javascript:void(0)" style="text-decoration: none; color: inherit;"><i class="fa-solid fa-user"></i>About Us</a></li>
+                        <li><a href="../Settings/settings.html" style="text-decoration: none; color: inherit;"><i class="fa-solid fa-gear"></i>Settings</a></li>
+                    </ul>
+                </section>
+            </div>
+            <div class="sidebar-footer">
+                <p class="arr">&copy; 2025 - 2026 12 ICT 2A</p>
+                <span>All rights reserved.</span>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="leaderboard-content">
+                <div class="game-select">
+                    <h3>Select Game</h3>
+                    <br>
+                    <select>
+                        <option>Global Ranking</option>
+                        <option>Game 1</option>
+                        <option>Game 2</option>
+                        <option>Game 3</option>
+                    </select>
+                </div>
+
+                <div class="wip-section">
+                    <div class="icon-group">
+                        <i class="fa-solid fa-hammer"></i>
+                        <i class="fa-solid fa-circle-question"></i>
+                    </div>
+                    <h2>Where are they?</h2>
+                    <p>Our developers are still digging for the scores...</p>
+                </div>
+            </div>
+        </main>
+
+        <div id="sidebarBackdrop" class="backdrop"></div>
+    </div>
+
+    <script defer src="../script.js"></script>
+</body>
+</html>

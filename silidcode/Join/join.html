@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join | SilidCode</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css"> 
+    <link rel="stylesheet" href="join.css">    
+</head>
+<body>
+
+   <nav>
+    <div class="nav-left">
+        <button id="sidebarToggle" class="menu-toggle">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <div class="logo" onclick="location.href='../index.html'" style="cursor:pointer">EG<span>Code</span></div>
+    </div>
+    <div class="nav-right"></div>
+  </nav>
+
+  <aside class="sidebar collapsed" id="sidebar">
+      <div class="sidebar-links">
+          <li onclick="location.href='../index.html'"><i class="fa-solid fa-house"></i> <span>Home</span></li>
+          <li onclick="location.href='#'"><i class="fa-solid fa-gamepad"></i> <span>Games</span></li>
+      </div>
+  </aside>
+  <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+  <div class="join-page-wrapper">
+      <div class="join-card">
+          <h2>Create Account</h2>
+          <p class="subtitle">Join the community and start playing!</p>
+          
+          <form id="register-form">
+              <div class="input-container">
+                  <i class="fa-solid fa-user input-icon"></i>
+                  <input type="text" id="reg-user" class="floating-input" placeholder=" " required>
+                  <label class="floating-label">Username</label>
+              </div>
+
+              <div class="input-container">
+                  <i class="fa-solid fa-lock input-icon"></i>
+                  <input type="password" id="reg-pass" class="floating-input" placeholder=" " required>
+                  <label class="floating-label">Password</label>
+                  <i class="fa-solid fa-eye-slash toggle-password" id="togglePass"></i>
+              </div>
+
+              <button type="submit" class="join-btn">Create Account</button>
+          </form>
+
+          <p class="footer-text">
+              Already a member? <a href="../Login/login.html">Login here</a>
+          </p>
+      </div>
+  </div>
+
+  <script src="../script.js"></script>
+  <script>
+    const togglePass = document.getElementById('togglePass');
+    const passwordInput = document.getElementById('reg-pass');
+
+    togglePass.addEventListener('click', () => {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        togglePass.classList.toggle('fa-eye');
+        togglePass.classList.toggle('fa-eye-slash');
+    });
+
+    document.getElementById('register-form').onsubmit = (e) => {
+        e.preventDefault();
+        const user = document.getElementById('reg-user').value.trim();
+        const pass = document.getElementById('reg-pass').value;
+        const hasLetter = /[a-zA-Z]/.test(pass);
+        if (!hasLetter) {
+            alert("Password must contain at least one letter!");
+            return;
+        }
+        if(localStorage.getItem(`user_${user}`)) {
+            alert("Username already taken!");
+            return;
+        }
+        localStorage.setItem(`user_${user}`, pass);
+        alert("Account created! Please login.");
+        window.location.href = '../Login/login.html';
+    };
+  </script>
+</body>
+</html>

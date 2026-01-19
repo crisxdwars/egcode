@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" oncontextmenu="return false" ondragstart="return false">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SilidCode | Play Free Online Games</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="intro-overlay">
+        <div class="intro-content">
+            <h1 class="logo-text">Silid<span>Code</span></h1>
+            <div class="loader-container"><div class="loader-bar"></div></div>
+        </div>
+    </div>
+
+   <nav>
+    <div class="nav-left">
+        <button id="sidebarToggle" class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        
+        <div class="logo">Silid<span>Code</span></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search games...">
+        </div>
+    </div>
+    <div class="nav-right">
+        <button id="openLogin" class="login-link">Login</button>
+        <button class="register-btn">Sign Up</button>
+    </div>
+  </nav>
+
+<div class="main-layout">
+  <aside class="sidebar collapsed" id="sidebar">
+    <div class="sidebar-sections">
+      <section>
+        <h3>Featured</h3>
+        <ul>
+          <li class="active"><i class="fa-solid fa-house"></i>Home</li>
+          <!--<li><a href="Leaderboard/leaderboard.html" style="text-decoration: none; color: inherit;"><i class="fa-solid fa-ranking-star"></i> Leaderboard</a></li>--->
+        </ul>
+      </section>
+
+      <section>
+        <h3>Community</h3>
+        <ul>
+          <li><a href="https://discord.gg/n68APgFZZX" target="_blank" style="text-decoration: none; color: inherit;"><i class="fa-brands fa-discord"></i>Discord</a></li>
+          <li><a href="javascript:void(0)" style="text-decoration: none; color: inherit;"><i class="fa-brands fa-facebook"></i>Facebook</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Others</h3>
+        <ul>
+          <li><a href="javascript:void(0)" style="text-decoration: none; color: inherit;"><i class="fa-solid fa-comment-dots"></i>Feedback</a></li>
+          <li><a href="About/about.html" style="text-decoration: none; color: inherit;"><i class="fa-solid fa-user"></i>About Us</a></li>
+          <li><a href="Settings/settings.html" style="text-decoration: none; color: inherit;"><i class="fa-solid fa-gear"></i>Settings</a></li>
+        </ul>
+      </section>
+    </div>
+
+    
+
+
+
+    <div class="sidebar-footer">
+      <p>&copy; 2025 - 2026 12-ICT 2A</p>
+      <span>All rights reserved.</span>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="content-header">
+      <h2>Featured Games</h2>
+      <br>
+    </div>
+
+    <div id="gameGrid" class="game-grid"></div>
+    <br><br>
+    <div class="content-header">
+      <h2>Favorites</h2>
+      <br>
+    </div>
+  </main>
+
+  <div id="sidebarBackdrop" class="backdrop"></div>
+</div>
+
+    <script defer src="script.js"></script>
+</body>
+</html>

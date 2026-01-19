@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings | SilidCode</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css"> <link rel="stylesheet" href="style.css">     
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="../index.html" class="logo" style="text-decoration:none">EG<span>Code</span></a>
+        </div>
+        <div class="nav-right">
+            <a href="../index.html" class="btn-primary" style="text-decoration:none; padding: 10px 20px; background:var(--accent); color:white; border-radius:6px;">Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="settings-container">
+        <h1>Settings</h1>
+        
+        <div class="settings-card">
+            <div class="setting-item">
+                <div class="setting-info">
+                    <h3>Personalization</h3>
+                    <p>Change the appearance of SilidCode.</p>
+                </div>
+                <div class="setting-control">
+                    <label>Theme</label>
+                    <select id="themeSelect">
+                        <option value="dark-modern">Dark Mode Modern</option>
+                        <option value="light-mode">Light Mode</option>
+                        <option value="light-rose">Light Rose</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<script defer>
+    const themeSelect = document.getElementById('themeSelect');
+    const storageKey = 'theme';
+    
+    const domain = '.yourdomain.com'; 
+
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    const activeTheme = getCookie(storageKey) || localStorage.getItem(storageKey) || 'dark-modern';
+    themeSelect.value = activeTheme;
+    document.documentElement.setAttribute('data-theme', activeTheme);
+    themeSelect.addEventListener('change', (e) => {
+        const selectedTheme = e.target.value;
+        document.documentElement.setAttribute('data-theme', selectedTheme);
+        localStorage.setItem(storageKey, selectedTheme);
+        const domainString = domain ? `; domain=${domain}` : '';
+        document.cookie = `${storageKey}=${selectedTheme}${domainString}; path=/; max-age=31536000; SameSite=Lax`;
+    });
+</script>
+</body>
+</html>

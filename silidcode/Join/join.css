@@ -1,0 +1,119 @@
+/* join.css */
+.join-page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 70px);
+    background: var(--bg-main);
+    padding: 20px;
+}
+
+.join-card {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--nav-border);
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.join-card h2 { color: var(--text-white); margin-bottom: 8px; font-size: 1.8rem; }
+.subtitle { color: var(--text-grey); margin-bottom: 35px; font-size: 0.9rem; }
+
+/* Floating Label Container */
+.input-container {
+    position: relative;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1rem;
+    z-index: 2;
+}
+
+.floating-input {
+    width: 100%;
+    padding: 15px 45px;
+    background: transparent;
+    border: 1px solid var(--nav-border);
+    border-radius: 10px;
+    color: var(--text-white);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.floating-input:focus {
+    border-color: var(--accent);
+}
+
+/* The Floating Label */
+.floating-label {
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-grey);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    background: var(--card-bg); /* Matches theme background */
+    padding: 0 5px;
+    z-index: 3;
+}
+
+/* Label Animation to Border */
+.floating-input:focus ~ .floating-label,
+.floating-input:not(:placeholder-shown) ~ .floating-label {
+    top: 0;
+    left: 15px;
+    font-size: 0.8rem;
+    color: var(--accent);
+    transform: translateY(-50%);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-grey);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.join-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.join-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.footer-text { margin-top: 25px; color: var(--text-grey); font-size: 0.9rem; }
+.footer-text a { color: var(--accent); text-decoration: none; font-weight: 600; }

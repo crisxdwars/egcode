@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Code Portal | SilidCode</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css"> <link rel="stylesheet" href="../Portal/Portal.css">    </head>
+<body>
+    <script>
+        if (!localStorage.getItem('g2fa')) {
+            window.location.href = '../Login/login.html';
+        }
+    </script>
+
+    <nav>
+        <div class="nav-left">
+            <button id="sidebarToggle" class="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div class="logo" onclick="location.href='../index.html'" style="cursor:pointer">EG<span>Code</span></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search games...">
+            </div>
+        </div>
+        <div class="nav-right">
+            <button id="openLogin" class="login-link">Login</button>
+            <button class="register-btn">Sign Up</button>
+        </div>
+    </nav>
+
+    <div class="main-layout">
+        <aside class="sidebar collapsed" id="sidebar">
+            <div class="sidebar-sections">
+              <section>
+                <h3>Featured</h3>
+                <ul>
+                  <li><a href="../index.html" style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:12px;">
+                    <i class="fa-solid fa-house"></i> Home</a>
+                  </li>
+                  <li><a href="javascript:void(0)" style="text-decoration: none; color: inherit; display:flex; align-items:center; gap:12px;">
+                    <i class="fa-solid fa-ranking-star"></i> Leaderboard</a></li>
+                </ul>
+              </section>
+        
+              <section>
+                <h3>Community</h3>
+                <ul>
+                  <li><a href="https://discord.gg/n68APgFZZX" target="_blank" style="text-decoration: none; color: inherit; display:flex; align-items:center; gap:12px;"><i class="fa-brands fa-discord"></i> Discord</a></li>
+                  <li><a href="javascript:void(0)" style="text-decoration: none; color: inherit; display:flex; align-items:center; gap:12px;"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                </ul>
+              </section>
+        
+              <section>
+                <h3>Others</h3>
+                <ul>
+                  <li><a href="javascript:void(0)" style="text-decoration: none; color: inherit; display:flex; align-items:center; gap:12px;"><i class="fa-solid fa-comment-dots"></i> Feedback</a></li>
+                  <li><a href="javascript:void(0)" style="text-decoration: none; color: inherit; display:flex; align-items:center; gap:12px;"><i class="fa-solid fa-user"></i> About Us</a></li>
+                  <li><a href="../Settings/settings.html" style="text-decoration: none; color: inherit; display:flex; align-items:center; gap:12px;"><i class="fa-solid fa-gear"></i> Settings</a></li>
+                </ul>
+              </section>
+            </div>
+        
+            <div class="sidebar-footer">
+              <p>&copy; 2025 - 2026 12 ICT 2A</p>
+              <span>All rights reserved.</span>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="portal-layout">
+                <div class="game-header-card">
+                    <img src="../Images/icontemp.png" class="game-banner">
+                    <div class="game-info">
+                        <h1>Flappy Code</h1>
+                        <p style="color: var(--text-grey);">HTML | CSS | Javascript</p>
+                        <button onclick="location.href='FlappyCode.html'" class="eg-play-btn">
+                            <i class="fa-solid fa-play"></i> LAUNCH GAME
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tabs-container">
+                    <div class="tabs">
+                        <button class="tab-link active" id="tab-about" onclick="switchTab('about')">About</button>
+                        <button class="tab-link" id="tab-leader" onclick="switchTab('leader')">#50 Leaderboard</button>
+                    </div>
+                    <div id="glider" class="tab-glider"></div>
+                </div>
+
+                <div id="tabBody" class="tab-content">
+                    </div>
+            </div>
+        </main>
+        <div id="sidebarBackdrop" class="backdrop"></div>
+    </div>
+
+    <script defer>
+        function switchTab(type) {
+            const body = document.getElementById('tabBody');
+            document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
+            document.getElementById(type === 'about' ? 'tab-about' : 'tab-leader').classList.add('active');
+
+            if(type === 'about') {
+                body.innerHTML = `
+                    <h3>Description</h3>
+                    <p style="color: var(--text-grey); margin-top: 10px; line-height: 1.6;">
+                    Flappy Birb sya beh pero mag cocode ka HAHA   
+                    </p>
+                `;
+            } else if(type === 'leader') {
+                const data = JSON.parse(localStorage.getItem('FlappyCode_leaderboard')) || [];
+                let html = '<table class="leader-table"><tr><th>Rank</th><th>Player</th><th style="text-align:right;">Score</th></tr>';
+                if(!data.length) html += '<tr><td colspan="3" style="text-align:center; padding:20px;">No scores yet.</td></tr>';
+                data.forEach((e, i) => {
+                    html += `<tr><td>#${i+1}</td><td>${e.name}</td><td style="text-align:right; color:var(--accent); font-weight:bold;">${e.score}</td></tr>`;
+                });
+                body.innerHTML = html + '</table>';
+            }
+            updateGlider();
+        }
+
+        function updateGlider() {
+            const activeTab = document.querySelector('.tab-link.active');
+            const glider = document.getElementById('glider');
+            if(activeTab && glider) {
+                glider.style.width = activeTab.offsetWidth + 'px';
+                glider.style.left = activeTab.offsetLeft + 'px';
+            }
+        }
+        window.addEventListener('load', () => switchTab('about'));
+    </script>
+    <script defer src="../script.js"></script>
+</body>
+</html>
