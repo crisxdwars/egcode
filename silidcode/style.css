@@ -193,7 +193,7 @@ nav {
 .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
 .game-card { background: var(--card-bg); border-radius: 7px; overflow: hidden; cursor: pointer; border: 1px solid var(--nav-border); transition: transform 0.3s ease, border 0.3s ease; }
 .game-card:hover { transform: translateY(-1px); border: 1px solid var(--accent); }
-.game-card img { width: 100%; aspect-ratio: 16/10; object-fit: fill; }
+.game-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
 .game-title { padding: 10px; font-size: 0.95rem; font-weight: 600; text-align: center; }
 
 .login-link { 

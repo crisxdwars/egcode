@@ -1,7 +1,7 @@
 const games = [
     { 
         name: "Flappy Code", 
-        img: "Images/icontemp.png", 
+        img: "Assets/Game Icon/flappycode.png", 
         path: "Flappy Code/Portal.html"
     },
     { 
